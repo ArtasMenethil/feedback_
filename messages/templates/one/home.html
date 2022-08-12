@@ -10,10 +10,10 @@
             <p>Вы тут первый раз? <a href="{% url 'reg' %}">Зарегистрируйтесь</a></p>
         {% else %}
             {% if user.is_superuser %}
-                <a href="#">Заявки</a>
+                <a href="{%url 'tickets_all'%}">Заявки</a>
             {% else %}
                 <p>Свяжитесь с нами для решения вашего вопроса</p>
-                <a href="#">
+                <a href="{%url 'ticket'%}">
                     <button>Задать вопрос</button>
                 </a>
                 <h2><b>Привет </b> {{ user.username }} </h2>

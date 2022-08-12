@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Заявки {% endblock %}
+
+{% block main %}
+    <div class="home_block">
+            <h2>Заявки</h2>
+        {% if not user.is_authenticated %}
+            <p>Кажется, вы забыли <a href="{% url 'user' %}">войти</a></p>
+        {% else %}
+            <ul>
+                {% for p in tick %}
+                <li>
+                    <p>{{ p.id }}</p>
+                    <p>{{ p.title }}</p>
+                     <p>{{ p.mess }}</p>
+                    <p>{{ p.name }}</p>
+                    <p>{{ p.mail }}</p>
+                    <p>{{ p.load }}</p>
+                    <p>{{ p.date }}</p>
+                </ul>
+                {% endfor %}
+        {% endif %}
+    </div>
+
+
+
+{% endblock %}
